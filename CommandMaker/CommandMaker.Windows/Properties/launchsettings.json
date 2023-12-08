@@ -1,0 +1,10 @@
+{
+	"profiles": {
+		"CommandMaker.Windows (Unpackaged)": {
+			"commandName": "Project"
+		},
+		"CommandMaker.Windows (Package)": {
+			"commandName": "MsixPackage"
+		}
+	}
+}

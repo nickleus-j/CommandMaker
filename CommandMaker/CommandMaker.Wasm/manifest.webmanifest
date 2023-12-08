@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "CommandMaker",
+  "display": "standalone",
+  "name": "CommandMaker",
+  "short_name": "CommandMaker",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
