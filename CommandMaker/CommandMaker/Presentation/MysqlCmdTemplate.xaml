@@ -31,7 +31,7 @@
         <TextBox TextWrapping="Wrap" MinHeight="200"  Text="{Binding CsvText}" AcceptsReturn="True" Name="csvTextBox"></TextBox>
       </StackPanel>
     </ScrollViewer>
-    <Button Grid.Column="1" Grid.Row="2" Content="Generate Command" Margin="10"></Button>
+    <Button Grid.Column="1" Grid.Row="2" Content="Generate Command" Margin="10" Command="{Binding Formulate}"></Button>
     <ScrollViewer Grid.Column="0" Grid.Row="3" Background="DarkOrchid">
       <StackPanel>
        

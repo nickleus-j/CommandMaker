@@ -25,36 +25,48 @@ DEU,Member State,DEU,Germany,Europe,Western Europe,DE,
 CIV,Member State,CIV,Côte d'Ivoire,Africa,Western Africa,CI,
 URY,Member State,URY,Uruguay,Americas,South America,UY,";
     }
-    public void Formulate()
+    public async Task Formulate()
     {
-        string[] lines = CsvText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+       await Task.Factory.StartNew(() => GenerateVarchaMysqlTableCommand(TableName,CsvText));
+    }
+    void GenerateVarchaMysqlTableCommand(string tableName, string csvText)
+    {
+        string[] lines = csvText.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
         // Create the table
-        CreateTableScript = $"CREATE TABLE {TableName} (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ";
-        string[] columnNames = lines[0].Split(',');
+        string createTableQuery = $"CREATE TABLE {tableName} (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, ";
+        string[] columnNames = lines[0].Replace(' ', '_').Split(',');
         for (int i = 0; i < columnNames.Length; i++)
         {
-            CreateTableScript += $"{columnNames[i]} VARCHAR(255), ";
-        }
-        CreateTableScript = CreateTableScript.TrimEnd(',', ' ') + ");";
+            if (!String.IsNullOrEmpty(columnNames[i]))
+            {
+                createTableQuery += $"{columnNames[i]} VARCHAR(255), ";
+            }
 
+        }
+        CreateTableScript = createTableQuery.TrimEnd(',', ' ') + ");";
         // Insert the data
-        InsertRecordsScript = $"INSERT INTO {TableName} (";
+        string insertDataQuery = $"INSERT INTO {tableName} (";
         for (int i = 0; i < columnNames.Length; i++)
         {
-            InsertRecordsScript += $"{columnNames[i]}, ";
+            insertDataQuery += $"{columnNames[i]}, ";
         }
-        InsertRecordsScript = InsertRecordsScript.TrimEnd(',', ' ') + ") VALUES ";
+        insertDataQuery = insertDataQuery.TrimEnd(',', ' ') + ") VALUES ";
         for (int i = 1; i < lines.Length; i++)
         {
-            string[] values = lines[i].Split(',');
-            InsertRecordsScript += "(";
+            string[] values = lines[i].Replace("'", "`").Split(',');
+            insertDataQuery += "(";
             for (int j = 0; j < values.Length; j++)
             {
-                InsertRecordsScript += $"'{values[j]}', ";
+                if (!String.IsNullOrEmpty(columnNames[j]))
+                {
+                    insertDataQuery += $"'{values[j]}', ";
+                }
+
             }
-            InsertRecordsScript = InsertRecordsScript.TrimEnd(',', ' ') + "), ";
+            insertDataQuery = insertDataQuery.TrimEnd(',', ' ') + "), ";
         }
-        InsertRecordsScript = InsertRecordsScript.TrimEnd(',', ' ') + ";";
+        InsertRecordsScript = insertDataQuery.TrimEnd(',', ' ') + ";";
+
     }
 }

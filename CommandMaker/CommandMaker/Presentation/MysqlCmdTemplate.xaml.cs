@@ -23,4 +23,8 @@ public sealed partial class MysqlCmdTemplate : Page
         this.InitializeComponent();
     }
 
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
 }
