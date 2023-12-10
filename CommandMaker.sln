@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CommandMaker\solution-config.props.sample = CommandMaker\solution-config.props.sample
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandMaker.Desk", "CommandMaker.Desk\CommandMaker.Desk.csproj", "{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -228,6 +230,22 @@ Global
 		{6ECBD8DF-1E90-416E-A466-491F3213FBFD}.Release|x64.Build.0 = Release|Any CPU
 		{6ECBD8DF-1E90-416E-A466-491F3213FBFD}.Release|x86.ActiveCfg = Release|Any CPU
 		{6ECBD8DF-1E90-416E-A466-491F3213FBFD}.Release|x86.Build.0 = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|arm64.Build.0 = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|x64.Build.0 = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Debug|x86.Build.0 = Debug|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|arm64.ActiveCfg = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|arm64.Build.0 = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|x64.ActiveCfg = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|x64.Build.0 = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|x86.ActiveCfg = Release|Any CPU
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -245,6 +263,7 @@ Global
 		{4E67ABF3-BFA5-4CA2-A053-2B311D9E87D2} = {49BFC879-7723-4D21-81CF-015D2B352219}
 		{DBA9F690-8E0C-44BB-8622-8553A752146B} = {49BFC879-7723-4D21-81CF-015D2B352219}
 		{6ECBD8DF-1E90-416E-A466-491F3213FBFD} = {D462D629-91E7-45B6-8C8E-85927EE7D235}
+		{2ECDB2B6-0F96-4E6B-BAFB-ABB627CB8B1F} = {D462D629-91E7-45B6-8C8E-85927EE7D235}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0EFA6969-56EE-4B5A-975F-80CF01A7B2D3}
