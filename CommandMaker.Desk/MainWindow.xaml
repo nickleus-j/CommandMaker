@@ -24,6 +24,7 @@
          AcceptsReturn="True" Name="csvBox" BorderBrush="#FF334A8E" FontFamily="Cascadia Code"/>
         <WrapPanel  Grid.Column="1" Grid.Row="2">
             <Button Content="Generate Mysql Code" Margin="5,2,2,3" FontFamily="Segoe UI Semibold" Click="Button_Click"/>
+            <TextBlock x:Name="ErrorMsg" FontSize="14" FontFamily="Segoe UI Black" Foreground="#FFDC1F1F" />
         </WrapPanel>
         <TextBox TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.Column="1" Grid.Row="3" IsReadOnly="True"
  AcceptsReturn="True" Name="mysqlBox" BorderBrush="#FF334A8E" FontFamily="Cascadia Code"/>

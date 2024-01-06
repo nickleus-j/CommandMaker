@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,7 +24,18 @@ namespace CommandMaker.Desk
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mysqlBox.Text = GenerateVarchaMysqlTableCommand(TableNameBox.Text,csvBox.Text);
+            bool isCsvTextValid = IsValidCsv(csvBox.Text);
+            mysqlBox.Text = GenerateVarchaMysqlTableCommand(TableNameBox.Text, csvBox.Text);
+            if (isCsvTextValid)
+            {
+                ErrorMsg.Text = String.Empty;
+                
+            }
+            else
+            {
+                ErrorMsg.Text = "invalid CSV careful with generated Mysql command/s";
+                //mysqlBox.Text = String.Empty;
+            }
         }
         string GenerateVarchaMysqlTableCommand(string tableName,string csvText)
         {
@@ -66,6 +78,32 @@ namespace CommandMaker.Desk
             insertDataQuery = insertDataQuery.TrimEnd(',', ' ') + ";";
 
             return String.Concat(createTableQuery, "\n", insertDataQuery);
+        }
+        private bool IsValidCsv(string text)
+        {
+            // Split the text into rows
+            string[] rows = text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+            foreach (string row in rows)
+            {
+                // Split each row into values using comma as the delimiter
+                string[] values = row.Split(',');
+
+                foreach (string value in values)
+                {
+                    // Trim whitespace and remove double quotes
+                    string trimmedValue = value.Trim().Trim('"');
+
+                    // Check if the trimmed value is empty
+                    if (string.IsNullOrEmpty(trimmedValue)|| Regex.IsMatch(trimmedValue, @"[,\n""]"))
+                    {
+                        return false; // Empty value is not valid
+                    }
+
+                }
+            }
+
+            return true; // All values are valid
         }
     }
 }

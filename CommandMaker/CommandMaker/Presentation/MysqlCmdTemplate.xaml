@@ -41,7 +41,7 @@
       <StackPanel>
         <TextBlock Text="Create Table" MaxHeight="30"/>
         <TextBox TextWrapping="Wrap" MinHeight="100"  Text="{Binding CreateTableScript}" AcceptsReturn="True" IsReadOnly="True"></TextBox>
-        <TextBlock Text="insert into Table" MaxHeight="30"/>
+        <TextBlock Text="Insert into Table" MaxHeight="30"/>
         <TextBox TextWrapping="Wrap" MinHeight="100"  Text="{Binding InsertRecordsScript}" AcceptsReturn="True" IsReadOnly="True"></TextBox>
       </StackPanel>
     </ScrollViewer>
