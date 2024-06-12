@@ -33,7 +33,7 @@ namespace CommandMaker.Desk
             }
             else
             {
-                ErrorMsg.Text = "invalid CSV careful with generated Mysql command/s";
+                ErrorMsg.Text = "Invalid CSV careful with generated Mysql command/s";
                 //mysqlBox.Text = String.Empty;
             }
         }
